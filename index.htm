@@ -6,6 +6,7 @@
     <title>TeleBot Pro - 未来科技的Telegram机器人开发服务</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
         :root {
             --primary-color: #0a192f;
@@ -26,6 +27,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--primary-color);
+            overflow-x: hidden;
         }
 
         .container {
@@ -67,15 +69,28 @@
         }
 
         header h1 {
+            font-family: 'Montserrat', sans-serif;
             font-size: 4rem;
             margin-bottom: 1rem;
             text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+            animation: fadeInDown 1s ease-out;
         }
 
         header p {
             font-size: 1.2rem;
             max-width: 600px;
             margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .btn {
@@ -90,12 +105,18 @@
             transition: all 0.3s ease;
             text-decoration: none;
             font-weight: bold;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .btn:hover {
             background: transparent;
             color: var(--accent-color);
             box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .services {
@@ -108,6 +129,8 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: var(--heading-color);
+            font-family: 'Montserrat', sans-serif;
+            animation: fadeIn 1s ease-out;
         }
 
         .service-grid {
@@ -124,6 +147,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 1s ease-out;
         }
 
         .service-item::before {
@@ -151,6 +175,7 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
         }
 
         .features {
@@ -164,6 +189,8 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: var(--heading-color);
+            font-family: 'Montserrat', sans-serif;
+            animation: fadeIn 1s ease-out;
         }
 
         .feature-list {
@@ -183,6 +210,7 @@
             padding: 1rem;
             border-radius: 5px;
             transition: transform 0.3s ease;
+            animation: fadeInUp 1s ease-out;
         }
 
         .feature-list li:hover {
@@ -206,125 +234,16 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: var(--heading-color);
+            font-family: 'Montserrat', sans-serif;
+            animation: fadeIn 1s ease-out;
         }
 
         form {
             max-width: 600px;
             margin: auto;
+            animation: fadeInUp 1s ease-out;
         }
 
         form input, form textarea {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: none;
-            background: var(--primary-color);
-            color: var(--text-color);
-            border-radius: 5px;
-            transition: box-shadow 0.3s ease;
-        }
-
-        form input:focus, form textarea:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px var(--accent-color);
-        }
-
-        form textarea {
-            height: 150px;
-        }
-
-        footer {
-            background: var(--primary-color);
-            color: var(--text-color);
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .telegram-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .telegram-link:hover {
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 3rem;
-            }
-
-            .container {
-                width: 90%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>TeleBot Pro</h1>
-            <p>引领未来的Telegram机器人开发服务，为您的业务注入智能动力</p>
-            <a href="tg://resolve?domain=telebotprobot" class="btn">立即咨询</a>
-        </div>
-    </header>
-
-    <section class="services">
-        <div class="container">
-            <h2>我们的智能服务</h2>
-            <div class="service-grid">
-                <div class="service-item">
-                    <h3>AI驱动定制</h3>
-                    <p>利用最新AI技术，为您量身打造智能Telegram机器人，满足未来业务需求。</p>
-                </div>
-                <div class="service-item">
-                    <h3>智能功能升级</h3>
-                    <p>为您的Telegram机器人注入先进功能，提升用户体验至新高度。</p>
-                </div>
-                <div class="service-item">
-                    <h3>性能优化加速</h3>
-                    <p>采用尖端技术优化您的机器人，实现光速响应和极致稳定性。</p>
-                </div>
-                <div class="service-item">
-                    <h3>全天候技术支持</h3>
-                    <p>提供24/7全方位技术支持，确保您的机器人运行无忧。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <h2>选择我们的未来优势</h2>
-            <ul class="feature-list">
-                <li>前沿的AI开发经验</li>
-                <li>极速响应和敏捷交付</li>
-                <li>银行级安全可靠代码</li>
-                <li>持续的技术创新支持</li>
-                <li>灵活的未来定制方案</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>联系未来</h2>
-            <form action="https://formspree.io/f/mvgppvzy" method="POST">
-                <input type="text" name="name" placeholder="您的尊称" required>
-                <input type="email" name="email" placeholder="您的电子邮箱" required>
-                <textarea name="message" placeholder="请描述您的未来需求" required></textarea>
-                <button type="submit" class="btn">发送未来讯息</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 TeleBot Pro. 引领未来，保留所有权利。</p>
-            <a href="tg://resolve?domain=telebotprobot" class="telegram-link">@telebotprobot</a>
-        </div>
-    </footer>
-</body>
-</html>
+            padding: 1rem
