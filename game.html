@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #game-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 5px;
+            width: 100px;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>猜数字游戏</h1>
+        <p>我已经想好了一个1到100之间的数字，你能猜出来吗？</p>
+        <input type="number" id="guess" min="1" max="100">
+        <button onclick="checkGuess()">猜！</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let targetNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            let guess = document.getElementById('guess').value;
+            let result = document.getElementById('result');
+            attempts++;
+
+            if (guess == targetNumber) {
+                result.innerHTML = `恭喜你猜对了！答案就是 ${targetNumber}。你用了 ${attempts} 次尝试。`;
+                // 这里可以添加向Telegram发送分数的逻辑
+            } else if (guess < targetNumber) {
+                result.innerHTML = "太小了，再试试！";
+            } else {
+                result.innerHTML = "太大了，再试试！";
+            }
+        }
+    </script>
+</body>
+</html>
