@@ -36,7 +36,7 @@
             overflow: hidden;
         }
 
-        /* 新的导航栏样式 */
+        /* 导航栏样式 */
         nav {
             background-color: rgba(23, 42, 69, 0.8);
             backdrop-filter: blur(10px);
@@ -94,100 +94,7 @@
             color: var(--accent-color);
         }
 
-        /* 调整header的上边距，为固定导航栏留出空间 */
-        header {
-            margin-top: 60px;
-            background: linear-gradient(45deg, #0a192f, #172a45);
-            color: var(--heading-color);
-            padding: 2rem 0;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(100, 255, 218, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 80%, rgba(100, 255, 218, 0.1) 0%, transparent 20%);
-            animation: pulse 10s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-
-        header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .tagline {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--primary-color);
-            padding: 0.8rem 1.5rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-weight: bold;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: var(--accent-color);
-            box-shadow: 0 0 15px var(--accent-color);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* 其他原有的样式保持不变 */
+        /* 其他样式保持不变 */
         /* ... */
 
         @media (max-width: 768px) {
@@ -239,19 +146,62 @@
     </header>
 
     <section id="services" class="services">
-        <!-- 保留原有的services内容 -->
+        <div class="container">
+            <h2>我们的智能服务</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>AI驱动定制</h3>
+                    <p>利用最新AI技术，为您量身打造智能Telegram机器人，满足未来业务需求。</p>
+                </div>
+                <div class="service-item">
+                    <h3>智能功能升级</h3>
+                    <p>为您的Telegram机器人注入先进功能，提升用户体验至新高度。</p>
+                </div>
+                <div class="service-item">
+                    <h3>性能优化加速</h3>
+                    <p>采用尖端技术优化您的机器人，实现光速响应和极致稳定性。</p>
+                </div>
+                <div class="service-item">
+                    <h3>全天候技术支持</h3>
+                    <p>提供24/7全方位技术支持，确保您的机器人运行无忧。</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="features" class="features">
-        <!-- 保留原有的features内容 -->
+        <div class="container">
+            <h2>选择我们的未来优势</h2>
+            <ul class="feature-list">
+                <li>前沿的AI开发经验</li>
+                <li>极速响应和敏捷交付</li>
+                <li>银行级安全可靠代码</li>
+                <li>持续的技术创新支持</li>
+                <li>灵活的未来定制方案</li>
+            </ul>
+        </div>
     </section>
 
     <section id="contact" class="contact">
-        <!-- 保留原有的contact内容 -->
+        <div class="container">
+            <h2>联系未来</h2>
+            <form action="https://formspree.io/f/mvgppvzy" method="POST">
+                <input type="text" name="name" placeholder="您的尊称" required>
+                <input type="email" name="email" placeholder="您的电子邮箱" required>
+                <textarea name="message" placeholder="请描述您的未来需求" required></textarea>
+                <button type="submit" class="btn">发送未来讯息</button>
+            </form>
+            <p style="margin-top: 2rem; text-align: center;">或者通过Telegram联系我们：</p>
+            <p style="text-align: center;">
+                <a href="tg://resolve?domain=telebotprobot" class="telegram-link">@telebotprobot</a>
+            </p>
+        </div>
     </section>
 
     <footer>
-        <!-- 保留原有的footer内容 -->
+        <div class="container">
+            <p>&copy; 2024 TeleBot Pro. 引领未来，保留所有权利。</p>
+        </div>
     </footer>
 
     <script>
