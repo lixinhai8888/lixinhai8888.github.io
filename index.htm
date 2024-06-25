@@ -76,11 +76,19 @@
             animation: fadeInDown 1s ease-out;
         }
 
-        header p {
+        .tagline {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .subtitle {
             font-size: 1.2rem;
             max-width: 600px;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1.2s ease-out;
         }
 
         @keyframes fadeInDown {
@@ -287,6 +295,14 @@
                 font-size: 3rem;
             }
 
+            .tagline {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
             .container {
                 width: 90%;
             }
@@ -297,8 +313,9 @@
     <header>
         <div class="container">
             <h1>TeleBot Pro</h1>
-            <p>引领未来的Telegram机器人开发服务，为您的业务注入智能动力</p>
-            <a href="#contact" class="btn">立即咨询</a>
+            <p class="tagline">智能驱动 • 未来已来</p>
+            <p class="subtitle">革新您的业务,引领Telegram机器人新纪元</p>
+            <a href="#contact" class="btn">探索智能未来</a>
         </div>
     </header>
 
