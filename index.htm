@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleBot Pro - 专业的Telegram机器人开发服务</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(45deg, #3a1c71, #d76d77, #ffaf7b);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://i.imgur.com/8wqd1sG.png') repeat;
+            opacity: 0.1;
+            animation: backgroundScroll 20s linear infinite;
+        }
+
+        @keyframes backgroundScroll {
+            from {background-position: 0 0;}
+            to {background-position: 100% 100%;}
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #555;
+        }
+
+        .services {
+            padding: 3rem 0;
+            background: #fff;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            background: linear-gradient(45deg, #3a1c71, #d76d77);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li::before {
+            content: '?';
+            margin-right: 10px;
+            color: #ffaf7b;
+        }
+
+        .contact {
+            padding: 3rem 0;
+            background: #fff;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form textarea {
+            height: 150px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>TeleBot Pro</h1>
+            <p>专业的Telegram机器人开发服务，为您的业务赋能</p>
+            <a href="#contact" class="btn">立即咨询</a>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="container">
+            <h2>我们的服务</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>定制开发</h3>
+                    <p>根据您的需求，量身定制Telegram机器人，满足特定业务场景。</p>
+                </div>
+                <div class="service-item">
+                    <h3>功能升级</h3>
+                    <p>为您现有的Telegram机器人添加新功能，提升用户体验。</p>
+                </div>
+                <div class="service-item">
+                    <h3>性能优化</h3>
+                    <p>优化您的机器人性能，提高响应速度和稳定性。</p>
+                </div>
+                <div class="service-item">
+                    <h3>技术支持</h3>
+                    <p>提供全面的技术支持，解决您在使用过程中遇到的问题。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>为什么选择我们</h2>
+            <ul class="feature-list">
+                <li>丰富的开发经验</li>
+                <li>快速响应和交付</li>
+                <li>安全可靠的代码</li>
+                <li>持续的技术支持</li>
+                <li>灵活的定制方案</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>联系我们</h2>
+            <form>
+                <input type="text" placeholder="您的姓名" required>
+                <input type="email" placeholder="您的邮箱" required>
+                <textarea placeholder="请描述您的需求" required></textarea>
+                <button type="submit" class="btn">发送消息</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TeleBot Pro. 保留所有权利。</p>
+        </div>
+    </footer>
+</body>
+</html>
