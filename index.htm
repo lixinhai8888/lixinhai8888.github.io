@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeleBot Pro - 专业的Telegram机器人开发服务</title>
+    <title>TeleBot Pro - 未来科技的Telegram机器人开发服务</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #172a45;
+            --accent-color: #64ffda;
+            --text-color: #8892b0;
+            --heading-color: #ccd6f6;
+        }
 
         * {
             margin: 0;
@@ -16,8 +24,8 @@
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+            color: var(--text-color);
+            background-color: var(--primary-color);
         }
 
         .container {
@@ -27,9 +35,9 @@
         }
 
         header {
-            background: linear-gradient(45deg, #3a1c71, #d76d77, #ffaf7b);
-            color: white;
-            padding: 1rem 0;
+            background: linear-gradient(45deg, #0a192f, #172a45);
+            color: var(--heading-color);
+            padding: 2rem 0;
             text-align: center;
             height: 100vh;
             display: flex;
@@ -47,53 +55,59 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://i.imgur.com/8wqd1sG.png') repeat;
-            opacity: 0.1;
-            animation: backgroundScroll 20s linear infinite;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(100, 255, 218, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 80%, rgba(100, 255, 218, 0.1) 0%, transparent 20%);
+            animation: pulse 10s infinite alternate;
         }
 
-        @keyframes backgroundScroll {
-            from {background-position: 0 0;}
-            to {background-position: 100% 100%;}
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
         }
 
         header p {
             font-size: 1.2rem;
             max-width: 600px;
+            margin-bottom: 2rem;
         }
 
         .btn {
             display: inline-block;
-            background: #333;
-            color: #fff;
+            background: var(--accent-color);
+            color: var(--primary-color);
             padding: 0.8rem 1.5rem;
             border: none;
             cursor: pointer;
             font-size: 1rem;
             border-radius: 5px;
-            margin-top: 1rem;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         .btn:hover {
-            background: #555;
+            background: transparent;
+            color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
         }
 
         .services {
-            padding: 3rem 0;
-            background: #fff;
+            padding: 5rem 0;
+            background: var(--secondary-color);
         }
 
         .services h2 {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            color: var(--heading-color);
         }
 
         .service-grid {
@@ -103,37 +117,61 @@
         }
 
         .service-item {
-            background: #f9f9f9;
-            padding: 1.5rem;
+            background: var(--primary-color);
+            padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .service-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-item:hover::before {
+            opacity: 0.1;
         }
 
         .service-item h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            color: var(--accent-color);
         }
 
         .features {
-            background: linear-gradient(45deg, #3a1c71, #d76d77);
-            color: white;
-            padding: 3rem 0;
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: 5rem 0;
         }
 
         .features h2 {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            color: var(--heading-color);
         }
 
         .feature-list {
             list-style-type: none;
             padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .feature-list li {
@@ -141,23 +179,33 @@
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
+            background: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(10px);
         }
 
         .feature-list li::before {
             content: '✓';
             margin-right: 10px;
-            color: #ffaf7b;
+            color: var(--accent-color);
+            font-weight: bold;
         }
 
         .contact {
-            padding: 3rem 0;
-            background: #fff;
+            padding: 5rem 0;
+            background: var(--secondary-color);
         }
 
         .contact h2 {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            color: var(--heading-color);
         }
 
         form {
@@ -167,10 +215,18 @@
 
         form input, form textarea {
             width: 100%;
-            padding: 0.8rem;
+            padding: 1rem;
             margin-bottom: 1rem;
-            border: 1px solid #ddd;
+            border: none;
+            background: var(--primary-color);
+            color: var(--text-color);
             border-radius: 5px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        form input:focus, form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent-color);
         }
 
         form textarea {
@@ -178,10 +234,31 @@
         }
 
         footer {
-            background: #333;
-            color: white;
+            background: var(--primary-color);
+            color: var(--text-color);
             text-align: center;
-            padding: 1rem 0;
+            padding: 2rem 0;
+        }
+
+        .telegram-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .telegram-link:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            .container {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -189,31 +266,30 @@
     <header>
         <div class="container">
             <h1>TeleBot Pro</h1>
-            <p>专业的Telegram机器人开发服务，为您的业务赋能</p>
-            <a href="tg://resolve?domain=telebotprobot" class="telegram-link">立即咨询</a>
-            
+            <p>引领未来的Telegram机器人开发服务，为您的业务注入智能动力</p>
+            <a href="tg://resolve?domain=telebotprobot" class="btn">立即咨询</a>
         </div>
     </header>
 
     <section class="services">
         <div class="container">
-            <h2>我们的服务</h2>
+            <h2>我们的智能服务</h2>
             <div class="service-grid">
                 <div class="service-item">
-                    <h3>定制开发</h3>
-                    <p>根据您的需求，量身定制Telegram机器人，满足特定业务场景。</p>
+                    <h3>AI驱动定制</h3>
+                    <p>利用最新AI技术，为您量身打造智能Telegram机器人，满足未来业务需求。</p>
                 </div>
                 <div class="service-item">
-                    <h3>功能升级</h3>
-                    <p>为您现有的Telegram机器人添加新功能，提升用户体验。</p>
+                    <h3>智能功能升级</h3>
+                    <p>为您的Telegram机器人注入先进功能，提升用户体验至新高度。</p>
                 </div>
                 <div class="service-item">
-                    <h3>性能优化</h3>
-                    <p>优化您的机器人性能，提高响应速度和稳定性。</p>
+                    <h3>性能优化加速</h3>
+                    <p>采用尖端技术优化您的机器人，实现光速响应和极致稳定性。</p>
                 </div>
                 <div class="service-item">
-                    <h3>技术支持</h3>
-                    <p>提供全面的技术支持，解决您在使用过程中遇到的问题。</p>
+                    <h3>全天候技术支持</h3>
+                    <p>提供24/7全方位技术支持，确保您的机器人运行无忧。</p>
                 </div>
             </div>
         </div>
@@ -221,32 +297,32 @@
 
     <section class="features">
         <div class="container">
-            <h2>为什么选择我们</h2>
+            <h2>选择我们的未来优势</h2>
             <ul class="feature-list">
-                <li>丰富的开发经验</li>
-                <li>快速响应和交付</li>
-                <li>安全可靠的代码</li>
-                <li>持续的技术支持</li>
-                <li>灵活的定制方案</li>
+                <li>前沿的AI开发经验</li>
+                <li>极速响应和敏捷交付</li>
+                <li>银行级安全可靠代码</li>
+                <li>持续的技术创新支持</li>
+                <li>灵活的未来定制方案</li>
             </ul>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2>联系我们</h2>
+            <h2>联系未来</h2>
             <form action="https://formspree.io/f/mvgppvzy" method="POST">
-    <input type="text" name="name" placeholder="您的姓名" required>
-    <input type="email" name="email" placeholder="您的邮箱" required>
-    <textarea name="message" placeholder="请描述您的需求" required></textarea>
-    <button type="submit" class="btn">发送消息</button>
-</form>
+                <input type="text" name="name" placeholder="您的尊称" required>
+                <input type="email" name="email" placeholder="您的电子邮箱" required>
+                <textarea name="message" placeholder="请描述您的未来需求" required></textarea>
+                <button type="submit" class="btn">发送未来讯息</button>
+            </form>
         </div>
     </section>
 
     <footer>
-       <div class="container">
-            <p>&copy; 2024 TeleBot Pro. 保留所有权利。</p>
+        <div class="container">
+            <p>&copy; 2024 TeleBot Pro. 引领未来，保留所有权利。</p>
             <a href="tg://resolve?domain=telebotprobot" class="telegram-link">@telebotprobot</a>
         </div>
     </footer>
